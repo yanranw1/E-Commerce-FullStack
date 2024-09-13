@@ -18,15 +18,23 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    @GetMapping
     public List<Product> getProducts(){
         return productRepository.findAll();
     }
 
-    @GetMapping
     public List<Product>  getProductsByName(String name){
         List<Product> product = productRepository.searchProductByName(name);
         return product;
+    }
+
+    public List<Product>  getProductsByCategory(String name){
+        List<Product> product = productRepository.findProductByCategory(name);
+        return product;
+    }
+
+    public List<String>  getCategory(){
+        List<String> category = productRepository.getCategory();
+        return category;
     }
 
     public void addNewProduct(Product product) {

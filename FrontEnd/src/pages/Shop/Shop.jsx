@@ -38,6 +38,17 @@ export const Shop = () => {
   const [searchQuery, setSearchQuery] = useState(""); // State to track the search input
   const [filteredProducts, setFilteredProducts] = useState(products); // State to hold filtered products
   const [searchLoading, setSearchLoading] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/api/v1/product/category')  // Adjust the API endpoint if needed
+        .then((response) => response.json())
+        .then((data) => setCategories(data))
+        .catch((error) => console.error('Error fetching categories:', error));
+  }, []);
+  
+
+
 
   // Handle search input change
   const handleSearchChange = (e) => {
@@ -65,6 +76,27 @@ export const Shop = () => {
     }
   };
 
+  const handleCategory= (category) => {
+    console.log("category",category)
+    if (category) {
+      setSearchLoading(true);
+      axios
+        .get(`http://localhost:8080/api/v1/product/category_name?category=${category}`)
+        .then((response) => {
+          setFilteredProducts(response.data); // Set filtered products from the search result
+          setSearchLoading(false);
+          console.log(response.data)
+        })
+        .catch((error) => {
+          console.error("Error fetching product:", error);
+          setSearchLoading(false);
+        });
+    } else {
+      setFilteredProducts(products); // Reset to all products if search query is empty
+    }
+  };
+  
+
   // if (loading || searchLoading) {
   //   return <p>Loading products...</p>;
   // }
@@ -73,6 +105,10 @@ export const Shop = () => {
   return (
     <div className="Shop">
       <div className="ShopTitle">
+        <div className = "CategoryBar">
+        {/* <button onClick={handleCategory(category)}>{category}</button> */}
+              {categories.map((category)=> (<button onClick={()=>handleCategory(category)}>{category}</button>))}
+        </div>
         <h1>Pottery Shop</h1>
       </div>
       {/* Search Input */}

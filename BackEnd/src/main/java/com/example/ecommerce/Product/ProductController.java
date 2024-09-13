@@ -28,6 +28,15 @@ public class ProductController {
     public List<Product> getProductsByName(@RequestParam String name){
         return productService.getProductsByName(name);
     }
+    @GetMapping("/category")
+    public  List<String> getCategory(){
+        return productService.getCategory();
+    }
+
+    @GetMapping("/category_name")
+    public  List<Product> getProductsByCategory(@RequestParam String category){
+        return productService.getProductsByCategory(category);
+    }
 
     @PostMapping
     public void registerNewProducts(@RequestBody Product product){
