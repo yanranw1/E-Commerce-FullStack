@@ -23,6 +23,12 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    @GetMapping
+    public List<Product>  getProductsByName(String name){
+        List<Product> product = productRepository.searchProductByName(name);
+        return product;
+    }
+
     public void addNewProduct(Product product) {
         Optional<Product> productByName = productRepository.findProductByName(product.getName());
         if (productByName.isPresent()){

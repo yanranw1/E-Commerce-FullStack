@@ -21,10 +21,12 @@
 // }
 
 
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../../context/Product-Context";
 import { Product } from "./Product";
+import axios from "axios";
 import "./Shop.css";
+
 
 export const Shop = () => {
   const { products, loading } = useContext(ProductContext);
@@ -33,16 +35,67 @@ export const Shop = () => {
     return <p>Loading products...</p>;
   }
 
+  const [searchQuery, setSearchQuery] = useState(""); // State to track the search input
+  const [filteredProducts, setFilteredProducts] = useState(products); // State to hold filtered products
+  const [searchLoading, setSearchLoading] = useState(false);
+
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Function to handle search
+  const handleSearch = () => {
+    console.log("searchQuery",searchQuery)
+    if (searchQuery) {
+      setSearchLoading(true);
+      axios
+        .get(`http://localhost:8080/api/v1/product/search?name=${searchQuery}`)
+        .then((response) => {
+          setFilteredProducts(response.data); // Set filtered products from the search result
+          setSearchLoading(false);
+          console.log(response.data)
+        })
+        .catch((error) => {
+          console.error("Error fetching product:", error);
+          setSearchLoading(false);
+        });
+    } else {
+      setFilteredProducts(products); // Reset to all products if search query is empty
+    }
+  };
+
+  // if (loading || searchLoading) {
+  //   return <p>Loading products...</p>;
+  // }
+
+
   return (
     <div className="Shop">
       <div className="ShopTitle">
         <h1>Pottery Shop</h1>
       </div>
+      {/* Search Input */}
+      <div className="Search">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          placeholder="Search for products"
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+
+
 
       <div className="Products">
-        {products.map((product) => (
-          <Product key={product.id} data={product} />
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <Product key={product.id} data={product} />
+          ))
+        ) : (
+          <p>No products found.</p>
+        )}
       </div>
     </div>
   );

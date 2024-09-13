@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/product")
@@ -19,7 +20,13 @@ public class ProductController {
 
     @GetMapping
     public List<Product> getProducts(){
+        System.out.println("getProducts");
         return productService.getProducts();
+    }
+
+    @GetMapping("/search")
+    public List<Product> getProductsByName(@RequestParam String name){
+        return productService.getProductsByName(name);
     }
 
     @PostMapping
