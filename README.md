@@ -9,7 +9,7 @@ This is a full-stack e-commerce shop application that allows users to browse and
 
 ## Features
 
-**User Mode**: Browse products, add items to the cart, and proceed to checkout.
+**User Mode**: Browse products, add items to the cart, and edit the shopping cart.
 
 **Shop Owner Mode**: Manage products.
 
