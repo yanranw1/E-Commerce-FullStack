@@ -10,6 +10,12 @@
   left: 0; /* Ensure it stretches from the left to the right */
 }
 
+.shop-name {
+  flex-grow: 1; /* Allows the shop name to take available space */
+  text-align: center; /* Centers the shop name within its space */
+  color: white;
+}
+
 .links {
   margin-right: 50px;
   display: flex;

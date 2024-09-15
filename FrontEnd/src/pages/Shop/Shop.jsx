@@ -110,22 +110,19 @@ export const Shop = () => {
 
   return (
     <div className="Shop">
-      <div className="ShopTitle">
-        <div className = "CategoryBar">
-        {/* <button onClick={handleCategory(category)}>{category}</button> */}
-              {categories.map((category)=> (<button className = "category-button" onClick={()=>handleCategory(category)}>{category}</button>))}
+      <div className = "CategoryBar">
+      {/* <button onClick={handleCategory(category)}>{category}</button> */}
+            {categories.map((category)=> (<button className = "category-button" onClick={()=>handleCategory(category)}>{category}</button>))}
+      
+        <div className="SearchBar">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleSearchChange}
+            placeholder="Search for products"
+          />
+          <button className = "search-button" onClick={handleSearch}>Search</button>
         </div>
-        <h1>Shop</h1>
-      </div>
-      {/* Search Input */}
-      <div className="SearchBar">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          placeholder="Search for products"
-        />
-        <button className = "search-button" onClick={handleSearch}>Search</button>
       </div>
 
 

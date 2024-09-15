@@ -5,21 +5,37 @@ import axios from "axios";
 
 export const ShopContext = createContext(null);
 
-const getDefaultCart = () => {
-  let cart = {};
-  for (let i = 1; i < PRODUCTS.length + 1; i++) {
-    cart[i] = 0;
-  }
-  return cart;
-};
+
 
 export const ShopContextProvider = (props) => {
-  const { products } = useContext(ProductContext);
-  const [shopownermode, setshopownermode] = useState(false); 
+  const { products } = useContext(ProductContext); // Fetching products from context
+  const [shopownermode, setshopownermode] = useState(false);
+  const [cartItems, setCartItems] = useState({}); // Initialize as empty cart
 
-  const [cartItems, setCartItems] = useState(getDefaultCart());
+
+  // Define the function to create the default cart
+  const getDefaultCart = () => {
+    let cart = {};
+    if (products && products.length > 0) {
+      for (let i = 1; i < products.length + 1; i++) {
+        cart[i] = 0;
+      }
+    } else {
+      console.log("products.length", products.length); // Debugging output
+    }
+    return cart;
+  };
+
+  // Update the cartItems state whenever products change
+  useEffect(() => {
+    if (products && products.length > 0) {
+      setCartItems(getDefaultCart());
+    }
+  }, [products]); // This effect runs whenever `products` changes
+
 
   const addToCart = (itemId) => {
+    console.log(itemId,"add-to-cart")
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };
 

@@ -7,6 +7,7 @@ export const NavBar = () => {
   return (
     <div className = "NavBar">
         {/* <div>NavBar</div> */}
+        <h1 className='shop-name'>Shopper</h1>
         <div className = "links">
             <Link to="/"> Shop </Link>
             <Link to="/cart"> 

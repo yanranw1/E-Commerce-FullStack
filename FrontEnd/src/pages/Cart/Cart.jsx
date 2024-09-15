@@ -5,6 +5,7 @@ import {CartItem} from "./CartItem"
 import {useNavigate} from "react-router-dom"
 import "./Cart.css"
 import { ProductContext } from "../../context/Product-Context";
+import {ShoppingCart} from "phosphor-react"
 
 export const Cart = () => {
     const navigate = useNavigate();
@@ -16,8 +17,9 @@ export const Cart = () => {
 
     return (
       <div className = "cart">
-          <div>
-              <h1>Your Cart Items</h1>
+          <div className='title'>
+              <h2 className='heading'>Your Cart Items</h2>
+              <ShoppingCart size = {32}/> 
           </div>
           {totalAmount > 0 ? (
             <div>
@@ -29,14 +31,17 @@ export const Cart = () => {
                   })}
               </div>
               <div className = "checkout">
-                <p> Subtotal: ${totalAmount}</p>
-                <button onClick = {() => navigate("/")}> Countinue Shopping </button>
+                <p> Subtotal: ${totalAmount.toFixed(2)}</p>
+                <button onClick = {() => navigate("/")}> Back </button>
                 <button> Checkout </button>
               </div>
             </div>
           ):
           (
+            <div>
             <h1>Your Cart is Empty</h1>
+            <button onClick = {() => navigate("/")}> Countinue Shopping </button>
+            </div>
           )}
           
       </div>

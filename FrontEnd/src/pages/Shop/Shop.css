@@ -1,67 +1,75 @@
+
+
+
 .Shop {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.ShopTitle h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  color: #333;
-}
+  .CategoryBar {
+    width: 100%;
+    height: 70px;
+    background-color: gainsboro;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 80px;
+    padding: 0 10px;
+    gap: 10px;
+  }
 
-.CategoryBar {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  gap: 10px;
-}
+  .category-buttons {
+    display: flex;
+    gap: 10px;
+  }
 
-.category-button {
-  padding: 10px 20px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  .category-button {
+    padding: 10px 20px;
+    background-color: #151515;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-.category-button:hover {
-  background-color: #ddd;
-}
+  .category-button:hover {
+    background-color: #0056b3;
+  }
 
-.category-button.selected {
-  background-color: #007bff;
-  color: #fff;
-}
+  .category-button:focus {
+    outline: none;
+    background-color: #004085;
+  }
 
-.SearchBar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
+  .SearchBar {
+    padding-top:33px;
+    display: flex;
+  }
 
-.SearchBar input {
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
+  .SearchBar input {
+    width: 100px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
 
-.search-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-left: 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
+  .search-button {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
 
-.search-button:hover {
-  background-color: #0056b3;
-}
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+
   .Products {
     width: 100%;
     height: auto;
@@ -79,10 +87,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 170px; /* Space from the top */
   }
   
   .Product img {
     width: 200px;
+    max-height: 300px;
   }
   
   .Product .Description {

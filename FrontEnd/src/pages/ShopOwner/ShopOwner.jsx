@@ -3,15 +3,19 @@ import React, { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../../context/Product-Context";
 import { Product } from "../Shop/Product";
 import {ShopContext} from "../../context/Shop-Context"
+import {Person} from "phosphor-react"
+import "./ShopOwner.css"
 
 export const ShopOwner = () => {
     const { products, loading } = useContext(ProductContext);
-
     const [passcode, setpasscode] = useState(""); // State to track the search input
     const [authentication, setauthentication] = useState(false); 
     const [searchQuery, setSearchQuery] = useState(""); // State to track the search input
     const [filteredProducts, setFilteredProducts] = useState(products); // State to hold filtered products
     const [searchLoading, setSearchLoading] = useState(false);
+    const [productAdded, setproductAdded] = useState(false);
+
+
 
     const{ shopownermode,setshopownermode} = useContext(ShopContext)
     const [product, setProduct] = useState({
@@ -72,6 +76,7 @@ export const ShopOwner = () => {
       // Handle search input change
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
+        setproductAdded(true);
     };
 
     // Function to handle search
@@ -97,7 +102,10 @@ export const ShopOwner = () => {
 
   return (
     <div className='ShopOwner'>
-        <h1 className='heading'>Welcome to Shop Owner Management Page</h1>
+        <div className='title'>
+            <h2 className='heading'>Shop Owner Management</h2>
+            <Person size={32} />
+        </div>
         {authentication ? (
             <div className='page'> 
                 <h2>Authentication Success</h2>
