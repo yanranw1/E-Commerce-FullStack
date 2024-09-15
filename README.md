@@ -2,10 +2,12 @@
 
 ***[Demo](https://youtu.be/HUm2r4uH5ZY)***
 ---
+
 ***Project Overview***
 
 This is a full-stack e-commerce shop application that allows users to browse and purchase products. The frontend is built using React, while the backend uses Spring Boot and MySQL. The application supports both user and shop owner modes, allowing for a flexible shopping and administrative experience.
 ---
+
 ***Features***
 
 **User Mode**: Browse products, add items to the cart, and proceed to checkout.
@@ -13,6 +15,7 @@ This is a full-stack e-commerce shop application that allows users to browse and
 **Cart Functionality**: Users can add, remove, and update quantities of products in the cart.
 **Dynamic Data Handling**: Products are fetched from a backend and the cart is dynamically updated based on user interactions.
 ---
+
 ***Technologies Used***
 
 **Frontend**
@@ -32,6 +35,7 @@ MySQL Database
 JPA/Hibernate for data persistence
 
 ---
+
 **Client Page**
 
 **Home**
