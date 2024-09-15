@@ -50,8 +50,8 @@ JPA/Hibernate for data persistence
 <img width="1437" alt="ShopOwner" src="https://github.com/user-attachments/assets/994364ca-4275-4a9d-beb2-26c4bd5a163f">
 
 
-##Acknowledgment
+## Acknowledgment
 This project is partially based on the following tutorial:
 
 [PedroTech - React Shopping Cart Ecommerce Beginner Website](https://www.youtube.com/watch?v=tEMrD9t85v4)
-We acknowledge the valuable guidance provided by this tutorial, which laid the foundation for the frontend shopping cart functionality. 
+We acknowledge the valuable guidance provided by this tutorial, which laid the foundation for the frontend. 
