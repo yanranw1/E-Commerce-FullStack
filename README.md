@@ -1,5 +1,5 @@
 ## E-commerce Shop Application
-***[Demo](https://youtu.be/HUm2r4uH5ZY)***
+# [Demo](https://youtu.be/HUm2r4uH5ZY)
 ---
 
 ***Project Overview***
