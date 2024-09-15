@@ -42,6 +42,7 @@ public class ProductService {
         if (productByName.isPresent()){
             throw new IllegalStateException("name taken");
         }
+        product.setId(null);
         productRepository.save(product);
     }
 
