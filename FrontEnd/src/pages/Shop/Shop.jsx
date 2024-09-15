@@ -23,6 +23,8 @@
 
 import React, { useContext, useState, useEffect } from "react";
 import { ProductContext } from "../../context/Product-Context";
+import {ShopContext} from "../../context/Shop-Context"
+
 import { Product } from "./Product";
 import axios from "axios";
 import "./Shop.css";
@@ -30,6 +32,7 @@ import "./Shop.css";
 
 export const Shop = () => {
   const { products, loading } = useContext(ProductContext);
+
 
   if (loading) {
     return <p>Loading products...</p>;
@@ -39,6 +42,9 @@ export const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState(products); // State to hold filtered products
   const [searchLoading, setSearchLoading] = useState(false);
   const [categories, setCategories] = useState([]);
+  const{ shopownermode,setshopownermode} = useContext(ShopContext)
+
+  setshopownermode(false);
 
   useEffect(() => {
     fetch('http://localhost:8080/api/v1/product/category')  // Adjust the API endpoint if needed

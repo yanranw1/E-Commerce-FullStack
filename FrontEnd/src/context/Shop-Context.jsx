@@ -1,6 +1,7 @@
 import {useContext, createContext, useEffect, useState } from "react";
 import { PRODUCTS } from "../product";
 import { ProductContext } from "./Product-Context";
+import axios from "axios";
 
 export const ShopContext = createContext(null);
 
@@ -14,13 +15,14 @@ const getDefaultCart = () => {
 
 export const ShopContextProvider = (props) => {
   const { products } = useContext(ProductContext);
+  const [shopownermode, setshopownermode] = useState(false); 
+
   const [cartItems, setCartItems] = useState(getDefaultCart());
-
-
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
   };
+
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
@@ -43,6 +45,16 @@ export const ShopContextProvider = (props) => {
     return totalAmount;
   };
 
+  const deleteItem = (productID) =>{
+    console.log("productID",productID)
+    if (productID) {
+    axios
+        .delete(`http://localhost:8080/api/v1/product/${productID}`)
+        .catch((error) => {
+        console.error("Error deleting product:", error);
+        });
+    }
+  }
   const checkout = () => {
     setCartItems(getDefaultCart());
   };
@@ -54,6 +66,9 @@ export const ShopContextProvider = (props) => {
     removeFromCart,
     getTotalCartAmount,
     checkout,
+    deleteItem,
+    shopownermode,
+    setshopownermode,
   };
 
   return (
