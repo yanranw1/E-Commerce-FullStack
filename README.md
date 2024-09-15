@@ -10,8 +10,11 @@ This is a full-stack e-commerce shop application that allows users to browse and
 ## Features
 
 **User Mode**: Browse products, add items to the cart, and proceed to checkout.
+
 **Shop Owner Mode**: Manage products.
+
 **Cart Functionality**: Users can add, remove, and update quantities of products in the cart.
+
 **Dynamic Data Handling**: Products are fetched from a backend and the cart is dynamically updated based on user interactions.
 
 
