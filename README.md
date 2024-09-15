@@ -1,9 +1,7 @@
-## E-commerce Shop Application
-# [Demo](https://youtu.be/HUm2r4uH5ZY)
+## E-commerce Shop Application [Demo](https://youtu.be/HUm2r4uH5ZY)
 ---
 
-***Project Overview***
-
+##Project Overview
 This is a full-stack e-commerce shop application that allows users to browse and purchase products. The frontend is built using React, while the backend uses Spring Boot and MySQL. The application supports both user and shop owner modes, allowing for a flexible shopping and administrative experience.
 ---
 
