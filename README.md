@@ -35,9 +35,7 @@ JPA/Hibernate for data persistence
 
 ## Image Demo
 
-**Client Page**
-
-**Home**
+**Client Home Page**
 
 <img width="1441" alt="HomePage" src="https://github.com/user-attachments/assets/8ecfeec5-7f61-41f1-b653-0e6d478a9be9">
 
